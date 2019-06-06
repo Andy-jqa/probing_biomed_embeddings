@@ -1,7 +1,11 @@
-# NER Probing Task
+# NLI Probing Task
 
 ## Data
-Preprocessed data is already in ```./data```
+Please download the MedNLI dataset [here](https://physionet.org/physiotools/mimic-code/mednli/) (you might need to apply for a license to download it). Put the downloaded jsonline files in ```./data```, and run the preprocessing code:
+
+```bash
+python preprocess.pyy
+```
 
 ## 1. Cache the Contextualized Word Embeddings
 First step is to cache the contextualized word embeddings. For this use:
@@ -19,7 +23,7 @@ $ python run.py --help
 usage: run.py [-h] [--batch_size BATCH_SIZE] [--seed SEED] [--lr LR]
               [--num_epoch NUM_EPOCH] [--embed_type EMBED_TYPE]
 
-Run probing experiments on bc2
+Run probing experiments on mednli
 
 optional arguments:
   -h, --help            show this help message and exit
@@ -33,16 +37,7 @@ optional arguments:
                         Cache the specified embedding type of the dataset.
                         Possible types: "biomed_elmo", "biomed_w2v",
                         "general_elmo"
+
 ```
 
 Logs will be saved at ```${EMBED_TYPE}_seed${SEED}_log```.
-
-## 3. Run the official evaluation codes
-After training a model, test set predictions at the iteraction of best developement performance are located at ```${EMBED_TYPE}_seed${SEED}_log/predictions```.
-
-Run the following script to evaluate the performance:
-
-```bash
-cd ./eavl_scripts
-perl alt_eval.perl $PREDICTION_PATH
-```
