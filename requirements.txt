@@ -1,0 +1,8 @@
+h5py==2.7.0
+numpy==1.16.2
+nltk==3.4
+jsonlines==1.2.0
+torch==0.4.1
+gensim==3.4.0
+allennlp==0.8.4
+bilm==0.1.post5
