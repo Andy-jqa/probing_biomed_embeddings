@@ -4,7 +4,7 @@
 Please download the MedNLI dataset [here](https://physionet.org/physiotools/mimic-code/mednli/) (you might need to apply for a license to download it). Put the downloaded jsonline files in ```./data```, and run the preprocessing code:
 
 ```bash
-python preprocess.pyy
+python preprocess.py
 ```
 
 ## 1. Cache the Contextualized Word Embeddings
